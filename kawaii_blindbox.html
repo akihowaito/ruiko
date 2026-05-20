@@ -538,6 +538,85 @@ body{
 .streak-sub{font-size:10px;color:#9296AA}
 .streak-count{font-size:22px;font-weight:900;color:#D06090}
 
+
+/* ── live clock ── */
+.kb-clock{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin:0 0 12px;padding:12px 14px;border-radius:22px;
+  background:linear-gradient(135deg,rgba(255,255,255,.68),rgba(255,232,242,.42));
+  border:1.5px solid rgba(255,255,255,.74);
+  box-shadow:var(--kb-soft-shadow),inset 0 1px 0 rgba(255,255,255,.72);
+  backdrop-filter:blur(18px) saturate(1.1);-webkit-backdrop-filter:blur(18px) saturate(1.1);
+}
+.clock-left{display:flex;align-items:center;gap:9px;min-width:0}
+.clock-emo{font-size:24px;filter:drop-shadow(0 4px 8px rgba(255,150,190,.12))}
+.clock-time{font-size:20px;font-weight:900;color:#626783;letter-spacing:.4px;line-height:1}
+.clock-date{font-size:10.5px;color:#9296AA;margin-top:4px;white-space:nowrap}
+.clock-pill{font-size:10.5px;color:#B078A8;background:rgba(255,255,255,.58);border:1px solid rgba(255,214,229,.66);border-radius:999px;padding:6px 9px;font-weight:800;white-space:nowrap}
+
+/* ── timestamp in history ── */
+.hi-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.hi-time{font-size:9.5px;color:#A6A9BA;font-weight:600}
+
+/* ── share preview modal ── */
+.share-preview-overlay{
+  position:fixed;inset:0;z-index:700;display:none;align-items:center;justify-content:center;
+  padding:18px;background:rgba(180,145,190,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.share-preview-overlay.open{display:flex;animation:fadeIn .2s ease}
+.share-preview-modal{
+  width:min(390px,94vw);border-radius:30px;padding:14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,236,245,.82));
+  border:1.5px solid rgba(255,255,255,.82);box-shadow:0 20px 60px rgba(160,120,180,.20);
+}
+.share-preview-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 3px}
+.share-preview-title{font-size:14px;font-weight:900;color:#626783}
+.share-preview-close{border:none;background:rgba(255,255,255,.58);color:#C07AA4;border-radius:999px;width:30px;height:30px;cursor:pointer;font-size:16px}
+.share-preview-img{width:100%;border-radius:24px;display:block;background:#fff;box-shadow:0 10px 28px rgba(160,120,180,.12)}
+.share-preview-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.share-preview-actions button,.share-preview-actions a{
+  text-align:center;text-decoration:none;border:none;border-radius:999px;padding:10px 12px;font-family:var(--font-sans);
+  font-size:12px;font-weight:900;cursor:pointer;color:#7E7890;background:rgba(255,255,255,.68);
+  border:1px solid rgba(255,214,229,.72);box-shadow:0 3px 10px rgba(255,150,190,.08);
+}
+.share-preview-actions .primary{color:#fff;background:linear-gradient(135deg,#FFB7CF,#CDBBFF,#BFD9FF);border-color:rgba(255,255,255,.78)}
+
+/* hidden generated share card */
+.share-card-stage{position:fixed;left:-9999px;top:0;width:760px;pointer-events:none;opacity:0}
+.result-share-card{
+  width:760px;min-height:1020px;padding:42px;border-radius:44px;color:#5E6174;
+  font-family:var(--font-sans);position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 18% 12%,rgba(255,183,207,.42),transparent 26%),
+    radial-gradient(circle at 88% 18%,rgba(191,217,255,.40),transparent 24%),
+    radial-gradient(circle at 30% 92%,rgba(217,203,255,.34),transparent 34%),
+    linear-gradient(180deg,#FFF8FC 0%,#F7FBFF 100%);
+  border:2px solid rgba(255,255,255,.88);
+  box-shadow:0 28px 90px rgba(170,120,180,.18);
+}
+.result-share-card::before{content:"";position:absolute;inset:18px;border-radius:34px;border:2px dashed rgba(255,190,218,.58);pointer-events:none}
+.rsc-top{text-align:center;position:relative;z-index:1;margin-bottom:28px}
+.rsc-badge{display:inline-flex;gap:8px;align-items:center;padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.9);font-size:22px;font-weight:900;color:#D06090}
+.rsc-title{font-size:48px;font-weight:950;margin-top:18px;color:#5A5F7A;letter-spacing:-1px}
+.rsc-sub{font-size:20px;color:#9296AA;margin-top:8px}
+.rsc-prize{position:relative;z-index:1;text-align:center;margin:34px 0;padding:40px 24px;border-radius:38px;background:rgba(255,255,255,.66);border:2px solid rgba(255,255,255,.88);box-shadow:0 16px 40px rgba(255,150,190,.12)}
+.rsc-emo{font-size:112px;line-height:1;margin-bottom:18px;filter:drop-shadow(0 10px 14px rgba(140,120,160,.14))}
+.rsc-rarity{font-size:20px;font-weight:950;letter-spacing:2px;color:#D65D8B;margin-bottom:12px}
+.rsc-name{font-size:38px;font-weight:950;color:#5E6174;margin-bottom:16px}
+.rsc-desc{font-size:22px;line-height:1.55;color:#80869E;background:rgba(255,255,255,.62);border-radius:999px;padding:14px 22px;display:inline-block;max-width:610px}
+.rsc-meta{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+.rsc-meta-i{background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.86);border-radius:24px;padding:18px;text-align:center}
+.rsc-meta-label{font-size:16px;color:#A0A4B8;margin-bottom:6px;font-weight:800}
+.rsc-meta-value{font-size:24px;color:#646985;font-weight:950}
+.rsc-footer{position:relative;z-index:1;text-align:center;margin-top:30px;font-size:18px;color:#9AA0B5;line-height:1.5}
+.rsc-small{font-size:15px;color:#B0B4C8;margin-top:8px}
+
+@media(max-width:380px){
+  .kb-clock{padding:10px 12px}
+  .clock-time{font-size:18px}
+  .clock-pill{font-size:10px;padding:5px 8px}
+}
+
 @media(max-width:380px){
   .kbb{max-width:360px;padding-left:12px;padding-right:12px}
   .kb-title{font-size:20px}
@@ -657,6 +736,18 @@ body{
   <div class="kb-top-row">
     <button class="kb-top-btn" onclick="showIntro()">← 介绍</button>
     <button class="kb-top-btn" id="wishBtn" onclick="openWish()">🌟 心愿单 <span id="wishCount">0</span></button>
+    <button class="kb-top-btn" id="bgmBtn" onclick="toggleBgm()">🎵 BGM</button>
+  </div>
+
+  <div class="kb-clock">
+    <div class="clock-left">
+      <span class="clock-emo" id="clockEmo">🌸</span>
+      <div>
+        <div class="clock-time" id="liveClock">00:00:00</div>
+        <div class="clock-date" id="liveDate">正在读取今日时间…</div>
+      </div>
+    </div>
+    <div class="clock-pill" id="clockWish">今日宜开箱</div>
   </div>
 
   <div class="kb-header">
@@ -775,6 +866,46 @@ body{
 </div>
 
 <div class="share-toast" id="shareToast">图片已准备好</div>
+
+<div class="share-preview-overlay" id="sharePreviewOverlay" onclick="closeSharePreviewOut(event)">
+  <div class="share-preview-modal">
+    <div class="share-preview-head">
+      <div class="share-preview-title">✨ 结果截图预览</div>
+      <button class="share-preview-close" onclick="closeSharePreview()">✕</button>
+    </div>
+    <img class="share-preview-img" id="sharePreviewImg" alt="解压盲盒结果截图预览">
+    <div class="share-preview-actions">
+      <a id="shareDownloadLink" download="kawaii-blindbox-result.png">保存图片</a>
+      <button class="primary" onclick="systemSharePreview()">分享出去</button>
+    </div>
+  </div>
+</div>
+
+<div class="share-card-stage" aria-hidden="true">
+  <div class="result-share-card" id="resultShareCard">
+    <div class="rsc-top">
+      <div class="rsc-badge">🎀 解压盲盒结果</div>
+      <div class="rsc-title">今日好运卡</div>
+      <div class="rsc-sub" id="rscTime">--</div>
+    </div>
+    <div class="rsc-prize">
+      <div class="rsc-emo" id="rscEmo">🎁</div>
+      <div class="rsc-rarity" id="rscRarity">等待开箱</div>
+      <div class="rsc-name" id="rscName">还没有结果</div>
+      <div class="rsc-desc" id="rscDesc">先开一箱，再生成你的专属分享卡片。</div>
+    </div>
+    <div class="rsc-meta">
+      <div class="rsc-meta-i"><div class="rsc-meta-label">今日连击</div><div class="rsc-meta-value" id="rscStreak">×0</div></div>
+      <div class="rsc-meta-i"><div class="rsc-meta-label">累计开箱</div><div class="rsc-meta-value" id="rscCount">0</div></div>
+      <div class="rsc-meta-i"><div class="rsc-meta-label">传说次数</div><div class="rsc-meta-value" id="rscLegendary">0</div></div>
+      <div class="rsc-meta-i"><div class="rsc-meta-label">心情状态</div><div class="rsc-meta-value" id="rscMood">未选择</div></div>
+    </div>
+    <div class="rsc-footer">
+      把烦恼关进盒子里，把好运摇出来 ✨
+      <div class="rsc-small">软萌开箱 · 好运收集 · 今日治愈</div>
+    </div>
+  </div>
+</div>
 </div><!-- end mainApp -->
 
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
@@ -848,6 +979,9 @@ const streakMsgs=["第一次开箱加油！","连开中，手感来了 🔥","�
 let st={count:0,lg:0,best:null,bestRank:-1},hist=[],busy=false,ac=null;
 let wishList=[];
 let currentPrize=null;
+let currentPrizeTime=null;
+let shareBlob=null,shareUrl=null;
+let bgmOn=false,bgmTimer=null,bgmStep=0;
 let moodIdx=-1;
 let streakN=0;
 
@@ -861,6 +995,28 @@ function showIntro(){
   document.getElementById("mainApp").style.display="none";
   document.getElementById("introPage").style.display="flex";
 }
+
+
+
+// ═══════ LIVE CLOCK ═══════
+function pad2(n){return String(n).padStart(2,"0")}
+function formatTime(d){return `${pad2(d.getHours())}:${pad2(d.getMinutes())}:${pad2(d.getSeconds())}`}
+function formatDateCN(d){
+  const week=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"][d.getDay()];
+  return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日 · ${week}`;
+}
+function formatStamp(d){return `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())} ${pad2(d.getHours())}:${pad2(d.getMinutes())}:${pad2(d.getSeconds())}`}
+function updateClock(){
+  const d=new Date();
+  const timeEl=document.getElementById("liveClock"),dateEl=document.getElementById("liveDate"),emoEl=document.getElementById("clockEmo"),wishEl=document.getElementById("clockWish");
+  if(timeEl)timeEl.textContent=formatTime(d);
+  if(dateEl)dateEl.textContent=formatDateCN(d);
+  const h=d.getHours();
+  if(emoEl)emoEl.textContent=h<6?"🌙":h<11?"🌸":h<17?"☁️":h<21?"🌷":"✨";
+  if(wishEl)wishEl.textContent=h<6?"夜猫子好运":h<11?"早安开箱":h<17?"今日宜解压":h<21?"晚间好运": "睡前开箱";
+}
+setInterval(updateClock,1000);
+updateClock();
 
 // ═══════ AUDIO ═══════
 function getAC(){
@@ -888,6 +1044,46 @@ function playPrize(rarity){
 }
 function playShare(){playPlink([988,1319,1760],.07,.1,"sine")}
 function playWish(){playPlink([880,1109],.08,.1,"sine")}
+
+function bgmNote(freq,when,dur,vol=.026){
+  try{
+    const a=getAC(),o=a.createOscillator(),g=a.createGain(),f=a.createBiquadFilter();
+    o.type="sine"; f.type="lowpass"; f.frequency.setValueAtTime(1800,when);
+    o.frequency.setValueAtTime(freq,when);
+    g.gain.setValueAtTime(0.0001,when);
+    g.gain.exponentialRampToValueAtTime(vol,when+.035);
+    g.gain.exponentialRampToValueAtTime(0.0001,when+dur);
+    o.connect(f);f.connect(g);g.connect(a.destination);
+    o.start(when);o.stop(when+dur+.05);
+  }catch(e){}
+}
+function bgmTick(){
+  if(!bgmOn)return;
+  const a=getAC(),t=a.currentTime;
+  const notes=[523.25,659.25,783.99,1046.5,987.77,783.99,659.25,587.33];
+  const bass=[261.63,329.63,392.00,329.63];
+  const n=notes[bgmStep%notes.length];
+  bgmNote(n,t,.42,.025);
+  if(bgmStep%2===0)bgmNote(bass[Math.floor(bgmStep/2)%bass.length],t,.70,.018);
+  if(bgmStep%8===0)playPlink([1318.51,1567.98],.08,.045,"sine");
+  bgmStep++;
+}
+function toggleBgm(){
+  const btn=document.getElementById("bgmBtn");
+  bgmOn=!bgmOn;
+  if(bgmOn){
+    getAC();bgmStep=0;
+    if(btn){btn.textContent="🎵 BGM ON";btn.classList.add("active")}
+    bgmTick();
+    bgmTimer=setInterval(bgmTick,360);
+    showToast("可爱BGM已开启");
+  }else{
+    clearInterval(bgmTimer);bgmTimer=null;
+    if(btn){btn.textContent="🎵 BGM";btn.classList.remove("active")}
+    showToast("BGM已关闭");
+  }
+}
+
 
 // ═══════ MOOD ═══════
 function setMood(idx){
@@ -1014,6 +1210,7 @@ function openBox(){
   setTimeout(()=>{
     const prize=pickPrize();
     currentPrize=prize;
+    currentPrizeTime=new Date();
     const cls=clsMap[prize.rarity];
     document.getElementById("prizeCard").className="prize-card "+cls;
     document.getElementById("prizeRarity").textContent=nameMap[prize.rarity];
@@ -1064,34 +1261,58 @@ function showToast(msg){
 }
 
 async function shareAsImage(){
-  const root=document.getElementById("kbb");
-  const btn=document.getElementById("shareBtn");
-  if(!root||!btn)return;
+  if(!currentPrize){showToast("先开一箱，再生成结果截图卡片");return;}
   if(typeof html2canvas==="undefined"){showToast("图片组件加载中，请稍后再试");return;}
   playShare();
-  const oldHTML=btn.innerHTML;
-  btn.disabled=true;
-  btn.innerHTML=`<span style="font-size:15px">✨</span>`;
-  root.classList.add("is-capturing");
+  buildResultShareCard();
   try{
     await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-    const canvas=await html2canvas(root,{backgroundColor:null,scale:Math.min(3,window.devicePixelRatio||2),useCORS:true,allowTaint:true,logging:false});
+    const card=document.getElementById("resultShareCard");
+    const canvas=await html2canvas(card,{backgroundColor:null,scale:Math.min(3,window.devicePixelRatio||2),useCORS:true,allowTaint:true,logging:false});
     const blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/png",1));
     if(!blob)throw new Error("canvas export failed");
-    const file=new File([blob],"kawaii-blindbox-share.png",{type:"image/png"});
+    if(shareUrl)URL.revokeObjectURL(shareUrl);
+    shareBlob=blob;
+    shareUrl=URL.createObjectURL(blob);
+    document.getElementById("sharePreviewImg").src=shareUrl;
+    document.getElementById("shareDownloadLink").href=shareUrl;
+    document.getElementById("sharePreviewOverlay").classList.add("open");
+    showToast("截图卡片已生成");
+  }catch(e){console.error(e);showToast("生成失败，请再试一次");}
+}
+
+function buildResultShareCard(){
+  const p=currentPrize;
+  if(!p)return;
+  const t=currentPrizeTime||new Date();
+  const moodLabels=["困困的","有点烦","一般般","还不错","超开心"];
+  document.getElementById("rscTime").textContent=formatDateCN(t)+" · "+formatTime(t);
+  document.getElementById("rscEmo").textContent=p.e;
+  document.getElementById("rscRarity").textContent=nameMap[p.rarity];
+  document.getElementById("rscName").textContent=p.n;
+  document.getElementById("rscDesc").textContent=p.d;
+  document.getElementById("rscStreak").textContent="×"+streakN;
+  document.getElementById("rscCount").textContent=st.count;
+  document.getElementById("rscLegendary").textContent=st.lg;
+  document.getElementById("rscMood").textContent=moodIdx>=0?moodLabels[moodIdx]:"未选择";
+}
+function closeSharePreview(){document.getElementById("sharePreviewOverlay").classList.remove("open")}
+function closeSharePreviewOut(e){if(e.target===document.getElementById("sharePreviewOverlay"))closeSharePreview()}
+async function systemSharePreview(){
+  if(!shareBlob){showToast("请先生成截图");return;}
+  try{
+    const file=new File([shareBlob],"kawaii-blindbox-result.png",{type:"image/png"});
     if(navigator.canShare&&navigator.canShare({files:[file]})){
-      await navigator.share({files:[file],title:"解压盲盒",text:"我的解压盲盒结果"});
+      await navigator.share({files:[file],title:"解压盲盒结果",text:"我的今日好运卡"});
       showToast("已打开分享面板");
     }else{
-      const url=URL.createObjectURL(blob);
-      const a=document.createElement("a");a.href=url;a.download="kawaii-blindbox-share.png";
-      document.body.appendChild(a);a.click();a.remove();
-      setTimeout(()=>URL.revokeObjectURL(url),1000);
-      showToast("已保存为图片");
+      const a=document.getElementById("shareDownloadLink");
+      if(a)a.click();
+      showToast("已保存图片");
     }
-  }catch(e){console.error(e);showToast("生成失败，请再试一次");}
-  finally{root.classList.remove("is-capturing");btn.disabled=false;btn.innerHTML=oldHTML;}
+  }catch(e){console.error(e);showToast("分享取消或失败");}
 }
+
 
 function addHist(prize){
   const list=document.getElementById("histList"),t=document.getElementById("histT");
@@ -1099,7 +1320,8 @@ function addHist(prize){
   hist.unshift(prize);
   const item=document.createElement("div");
   item.className="hist-i";
-  item.innerHTML=`<span class="hi-e">${prize.e}</span><span class="hi-n">${prize.n}</span><span class="hi-b ${clsMap[prize.rarity]}">${nameMap[prize.rarity]}</span>`;
+  const stamp=formatStamp(currentPrizeTime||new Date());
+  item.innerHTML=`<span class="hi-e">${prize.e}</span><span class="hi-main"><span class="hi-n">${prize.n}</span><span class="hi-time">${stamp}</span></span><span class="hi-b ${clsMap[prize.rarity]}">${nameMap[prize.rarity]}</span>`;
   list.insertBefore(item,list.firstChild);
   while(list.children.length>8)list.removeChild(list.lastChild);
 }
